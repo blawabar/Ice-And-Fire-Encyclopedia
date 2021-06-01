@@ -1,0 +1,27 @@
+:root {
+  --white: #eeeeee;
+  --light-grey: #f2f3f6;
+  --grey: #d4d7e1;
+  --dark-grey: #3d445c;
+
+  --light-blue: #8290c9;
+  --red: #ea5a86;
+
+  --main-font: 'Raleway', sans-serif;
+
+  --app-header-height: 96px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--main-font);
+}
+
+body {
+  background-color: var(--light-grey);
+}
