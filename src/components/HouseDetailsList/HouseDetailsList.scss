@@ -1,0 +1,11 @@
+.house-details-list {
+  padding: 0 16px 0;
+
+  & > li {
+    margin-bottom: 10px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}

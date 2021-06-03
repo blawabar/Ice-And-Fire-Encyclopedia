@@ -34,4 +34,27 @@ export type House = {
   ancestralWeapons: Array<string>; //	An array of names of the noteworthy weapons that this house owns.
   cadetBranches: Array<string>; // An array of House resource URLs that was founded from this house.
   swornMembers: Array<string>; //	An array of Character resource URLs that are sworn to this house.
+  [key: string]: string | Array<string>;
 };
+
+type DictionaryKeys =
+  | "region"
+  | "coatOfArms"
+  | "words"
+  | "titles"
+  | "seats"
+  | "diedOut"
+  | "overlord"
+  | "cadetBranches";
+
+export type HouseDetailsDictionary = Record<DictionaryKeys, string> & {
+  [key: string]: string;
+};
+
+export type HouseFetcherState = {
+  data?: House;
+  isLoading: boolean;
+  error?: string;
+};
+
+export type HouseIdParam = { houseId: string };
