@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from "../../data/actions";
 import { RootState } from "../../data/store";
+import "./Toolbar.scss";
 
 const Toolbar: React.FC = () => {
   const dispatch = useDispatch();

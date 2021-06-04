@@ -79,7 +79,7 @@ export type CharactersState = {
   error: string | null;
   requestData: CharactersRequestData;
   currentPage: number;
-  lastPage?: number;
+  lastPage: number;
 };
 
 export type CharactersSuccessPayload = {

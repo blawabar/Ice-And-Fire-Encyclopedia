@@ -1,0 +1,42 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  label,
+  &__rows-per-page,
+  &__page-info {
+    font-size: 10px;
+  }
+
+  &__rows-per-page {
+    padding: 2px 4px;
+    margin-left: 8px;
+  }
+
+  &__page-info {
+    display: inline-block;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  &__buttons-group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__page-btn {
+    padding: 0.5em;
+    margin-right: 8px;
+    font-size: 10px;
+    font-family: var(----main-font);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

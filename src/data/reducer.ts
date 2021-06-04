@@ -9,6 +9,7 @@ const INITIAL_STATE: CharactersState = {
   isLoading: false,
   error: null,
   currentPage: 1,
+  lastPage: 1,
   requestData: {
     page: 1,
     pageSize: 10,
@@ -28,6 +29,7 @@ export const charactersReducer = (
         ...state,
         isLoading: false,
         data: action.payload.data,
+        currentPage: action.payload.requestData.page,
         lastPage: action.payload.lastPage,
         requestData: action.payload.requestData,
       };

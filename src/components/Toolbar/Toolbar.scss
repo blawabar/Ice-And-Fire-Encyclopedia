@@ -1,0 +1,21 @@
+.toolbar {
+  label,
+  input,
+  select {
+    font-size: 10px;
+  }
+
+  input,
+  select {
+    padding: 2px 4px;
+  }
+
+  input {
+    margin-left: 8px;
+    margin-right: 24px;
+  }
+
+  select {
+    margin-left: 8px;
+  }
+}
