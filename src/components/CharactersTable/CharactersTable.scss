@@ -1,0 +1,36 @@
+.characters-table {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 100%;
+  border-spacing: 0;
+  font-size: 12px;
+  background-color: var(--white);
+
+  td {
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  td,
+  th {
+    padding: 8px 16px;
+    text-align: left;
+
+    &:first-child {
+      width: 65%;
+    }
+
+    &:nth-child(2) {
+      width: 15%;
+    }
+
+    &:last-child {
+      width: 8%;
+      text-align: center;
+    }
+  }
+}
+
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+}

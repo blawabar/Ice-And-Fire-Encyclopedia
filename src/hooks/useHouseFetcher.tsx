@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { APIProvider } from "./api-provider";
-import { HouseFetcherState } from "./types";
+import { useState, useEffect } from "react";
+import { APIProvider } from "../data/api-provider";
+import { HouseFetcherState } from "../data/types";
 
-export const useHouseFetcher = (houseId: string) => {
+const useHouseFetcher = (houseId: string) => {
   const [state, setState] = useState<HouseFetcherState>({
     isLoading: true,
   });
@@ -23,3 +23,5 @@ export const useHouseFetcher = (houseId: string) => {
 
   return state;
 };
+
+export default useHouseFetcher;

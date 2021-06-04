@@ -44,10 +44,11 @@ const NavBar: React.FC = () => {
           <option value={50}>50</option>
         </select>
       </label>
-      <button>First Page</button>
-      <button>Previous Page</button>
-      <button>Next Page</button>
-      <button>Last Page</button>
+      {/* TODO: add info about the current and the last page */}
+      <button>First</button>
+      <button>Prev</button>
+      <button>Next</button>
+      <button>Last</button>
     </nav>
   );
 };
