@@ -58,3 +58,57 @@ export type HouseFetcherState = {
 };
 
 export type HouseIdParam = { houseId: string };
+
+export type CharactersRequestData = {
+  page: number;
+  pageSize: number;
+  gender?: string;
+  culture?: string;
+};
+
+export type CharactersData = Array<Character>;
+
+export type CharactersResponse = {
+  data: CharactersData;
+  lastPage: number;
+};
+
+export type CharactersState = {
+  data: CharactersData;
+  isLoading: boolean;
+  error: string | null;
+  requestData: CharactersRequestData;
+  currentPage: number;
+  lastPage?: number;
+};
+
+export type CharactersSuccessPayload = {
+  data: CharactersData;
+  requestData: CharactersRequestData;
+  lastPage: number;
+};
+
+export enum CharactersActionTypes {
+  GET_CHARACTERS_REQUEST = "GET_CHARACTERS_REQUEST",
+  GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS",
+  GET_CHARACTERS_FAILURE = "GET_CHARACTERS_FAILURE",
+}
+
+export type GetCharactersRequestAction = {
+  type: CharactersActionTypes.GET_CHARACTERS_REQUEST;
+};
+
+export type GetCharactersSuccessAction = {
+  type: CharactersActionTypes.GET_CHARACTERS_SUCCESS;
+  payload: CharactersSuccessPayload;
+};
+
+export type GetCharactersFailureAction = {
+  type: CharactersActionTypes.GET_CHARACTERS_FAILURE;
+  payload: string;
+};
+
+export type CharactersActions =
+  | GetCharactersRequestAction
+  | GetCharactersSuccessAction
+  | GetCharactersFailureAction;
