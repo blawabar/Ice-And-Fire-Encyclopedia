@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getCharacters } from "../../data/actions";
+import { SetCharactersFilter } from "../../data/actions";
 import { useToolbarSelector } from "../../hooks";
 import "./Toolbar.scss";
 
 const Toolbar: React.FC = () => {
   const dispatch = useDispatch();
-  const { rootPageSize, rootCulture, rootGender, isToolbarDisabled } =
-    useToolbarSelector();
+  const { rootCulture, rootGender, isToolbarDisabled } = useToolbarSelector();
   const [culture, setCulture] = useState(rootCulture);
   const [gender, setGender] = useState(rootGender);
 
@@ -27,9 +26,7 @@ const Toolbar: React.FC = () => {
     setGender(evt.target.value);
 
   useEffect(() => {
-    dispatch(
-      getCharacters({ page: 1, pageSize: rootPageSize, culture, gender }),
-    );
+    dispatch(SetCharactersFilter({ culture, gender }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [culture, gender]);
 

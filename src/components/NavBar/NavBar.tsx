@@ -1,24 +1,21 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getCharacters } from "../../data/actions";
+import { SetCharactersPagination } from "../../data/actions";
 import { useNavBarSelector } from "../../hooks";
 import "./NavBar.scss";
 
 const NavBar: React.FC = () => {
   const dispatch = useDispatch();
   const {
-    rootCulture,
-    rootGender,
-    rootRowsPerPage,
+    rootPageSize,
     rootCurrentPage,
     rootLastPage,
     isNavBarHidden,
+    isDisplayingFirstPage,
+    isDisplayingLastPage,
   } = useNavBarSelector();
-  const [rowsPerPage, setRowsPerPage] = useState(rootRowsPerPage);
+  const [rowsPerPage, setRowsPerPage] = useState(rootPageSize);
   const [currentPage, setCurrentPage] = useState(rootCurrentPage);
-
-  const isDisplayingFirstPage = currentPage === 1;
-  const isDisplayingLastPage = currentPage === rootLastPage;
 
   const handleOnChangeRowsPerPage = (
     evt: React.ChangeEvent<HTMLSelectElement>,
@@ -27,26 +24,26 @@ const NavBar: React.FC = () => {
   const handleOnLoadFirstPage = () => {
     setCurrentPage(1);
   };
+
   const handleOnLoadPrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);
     }
   };
+
   const handleOnLoadNextPage = () => {
     if (currentPage < rootLastPage) {
       setCurrentPage((prev) => prev + 1);
     }
   };
+
   const handleOnLoadLastPage = () => {
     setCurrentPage(rootLastPage);
   };
 
-  const filterData = { culture: rootCulture, gender: rootGender };
-
   useEffect(() => {
     dispatch(
-      getCharacters({
-        ...filterData,
+      SetCharactersPagination({
         page: 1,
         pageSize: rowsPerPage,
       }),
@@ -56,8 +53,7 @@ const NavBar: React.FC = () => {
 
   useEffect(() => {
     dispatch(
-      getCharacters({
-        ...filterData,
+      SetCharactersPagination({
         page: currentPage,
         pageSize: rowsPerPage,
       }),
@@ -81,34 +77,34 @@ const NavBar: React.FC = () => {
       </label>
       <span className="nav-bar__page-info">{`Page ${rootCurrentPage} of ${rootLastPage}`}</span>
       <div className="nav-bar__buttons-group">
-        <button
+        <input
+          type="button"
           className="nav-bar__page-btn"
           disabled={isDisplayingFirstPage}
           onClick={handleOnLoadFirstPage}
-        >
-          First
-        </button>
-        <button
+          value="First"
+        />
+        <input
+          type="button"
           className="nav-bar__page-btn"
           disabled={isDisplayingFirstPage}
           onClick={handleOnLoadPrevPage}
-        >
-          Prev
-        </button>
-        <button
+          value="Prev"
+        />
+        <input
+          type="button"
           className="nav-bar__page-btn"
           disabled={isDisplayingLastPage}
           onClick={handleOnLoadNextPage}
-        >
-          Next
-        </button>
-        <button
+          value="Next"
+        />
+        <input
+          type="button"
           className="nav-bar__page-btn"
           disabled={isDisplayingLastPage}
           onClick={handleOnLoadLastPage}
-        >
-          Last
-        </button>
+          value="Last"
+        />
       </div>
     </nav>
   );

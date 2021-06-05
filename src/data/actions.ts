@@ -9,6 +9,10 @@ import {
   CharactersSuccessPayload,
   CharactersActions,
   CharactersRequestData,
+  SetCharactersFilterAction,
+  SetCharactersPaginationAction,
+  CharactersFilterData,
+  CharactersPaginationData,
 } from "./types";
 
 export const getCharactersRequest = (): GetCharactersRequestAction => ({
@@ -48,3 +52,17 @@ export const getCharacters =
       dispatch(getCharactersFailure("Error during getting characters data..."));
     }
   };
+
+export const SetCharactersFilter = (
+  payload: CharactersFilterData,
+): SetCharactersFilterAction => ({
+  type: CharactersActionTypes.SET_CHARACTERS_FILTER,
+  payload,
+});
+
+export const SetCharactersPagination = (
+  payload: CharactersPaginationData,
+): SetCharactersPaginationAction => ({
+  type: CharactersActionTypes.SET_CHARACTERS_PAGINATION,
+  payload,
+});

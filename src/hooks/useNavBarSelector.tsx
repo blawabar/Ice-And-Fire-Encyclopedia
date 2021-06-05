@@ -4,17 +4,17 @@ import { RootState } from "../data/store";
 const useNavBarSelector = () =>
   useSelector(
     ({
-      requestData: { gender, culture, pageSize },
+      requestData: { pageSize: rootPageSize },
       currentPage,
       lastPage,
       data,
     }: RootState) => ({
-      rootGender: gender || "",
-      rootCulture: culture || "",
-      rootRowsPerPage: pageSize,
+      rootPageSize,
       rootCurrentPage: currentPage,
       rootLastPage: lastPage,
       isNavBarHidden: !Boolean(data.length),
+      isDisplayingFirstPage: currentPage === 1,
+      isDisplayingLastPage: currentPage === lastPage,
     }),
   );
 

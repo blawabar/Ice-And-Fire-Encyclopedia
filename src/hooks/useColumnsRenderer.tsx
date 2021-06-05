@@ -54,7 +54,7 @@ const resolveCharacterAliveInfo = (born: string, died: string) => {
 };
 
 const resolveAllegiancesList = (allegiances: Array<string>) => {
-  return (
+  return Boolean(allegiances.length) ? (
     <ul>
       {allegiances.map((url, index) => {
         const localUrl = url.substring(url.lastIndexOf("/") + 1);
@@ -65,6 +65,8 @@ const resolveAllegiancesList = (allegiances: Array<string>) => {
         );
       })}
     </ul>
+  ) : (
+    " - "
   );
 };
 

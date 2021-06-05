@@ -2,6 +2,7 @@ import { CharactersRequestData } from "../data/types";
 
 export const extractQueryParams = (args: CharactersRequestData) =>
   Object.entries(args)
+    .filter(([_, value]) => Boolean(value))
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
 

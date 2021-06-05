@@ -13,13 +13,17 @@ import "./CharactersPage.scss";
 const CharactersPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading, error, page, pageSize, responseMessage } =
-    useCharactersPageSelector();
+  const { data, isLoading, error, requestData } = useCharactersPageSelector();
 
   useEffect(() => {
-    dispatch(getCharacters({ page, pageSize }));
+    dispatch(getCharacters(requestData));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [
+    requestData.culture,
+    requestData.gender,
+    requestData.page,
+    requestData.pageSize,
+  ]);
 
   let pageBody = null;
 
@@ -28,14 +32,16 @@ const CharactersPage: React.FC = () => {
   } else if (isLoading) {
     pageBody = <LoadingIndicator resourceName="characters" />;
   } else if (data) {
-    pageBody = <CharactersTable data={data} />;
+    pageBody = Boolean(data.length) ? (
+      <CharactersTable data={data} />
+    ) : (
+      "No characters found"
+    );
   }
 
   return (
     <div className="characters-page">
-      {!isLoading && (
-        <h2 className="characters-page__title">{responseMessage}</h2>
-      )}
+      <h2 className="characters-page__title">Characters</h2>
       <Toolbar />
       <section className="characters-page__body">{pageBody}</section>
       <NavBar />

@@ -3,10 +3,10 @@ import { HouseDetailsDictionary } from "./types";
 export const ROOT_URL = "/";
 export const HOUSE_URL = "/house";
 
-const BASE_URL = "https://anapioficeandfire.com/api";
+const API_BASE_URL = "https://anapioficeandfire.com/api";
 
-export const CHARACTERS_ENDPOINT = `${BASE_URL}/characters`;
-export const HOUSES_ENDPOINT = `${BASE_URL}/houses`;
+export const CHARACTERS_ENDPOINT = `${API_BASE_URL}/characters`;
+export const HOUSES_ENDPOINT = `${API_BASE_URL}/houses`;
 
 export const HOUSE_FETCHING_ERROR_MSG =
   "Could not find any house that matches the request, try again!";

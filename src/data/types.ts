@@ -62,8 +62,18 @@ export type HouseIdParam = { houseId: string };
 export type CharactersRequestData = {
   page: number;
   pageSize: number;
-  gender?: string;
-  culture?: string;
+  gender: string;
+  culture: string;
+};
+
+export type CharactersFilterData = {
+  gender: string;
+  culture: string;
+};
+
+export type CharactersPaginationData = {
+  page: number;
+  pageSize: number;
 };
 
 export type CharactersData = Array<Character>;
@@ -92,6 +102,8 @@ export enum CharactersActionTypes {
   GET_CHARACTERS_REQUEST = "GET_CHARACTERS_REQUEST",
   GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS",
   GET_CHARACTERS_FAILURE = "GET_CHARACTERS_FAILURE",
+  SET_CHARACTERS_FILTER = "SET_CHARACTERS_FILTER",
+  SET_CHARACTERS_PAGINATION = "SET_CHARACTERS_PAGINATION",
 }
 
 export type GetCharactersRequestAction = {
@@ -108,7 +120,19 @@ export type GetCharactersFailureAction = {
   payload: string;
 };
 
+export type SetCharactersFilterAction = {
+  type: CharactersActionTypes.SET_CHARACTERS_FILTER;
+  payload: CharactersFilterData;
+};
+
+export type SetCharactersPaginationAction = {
+  type: CharactersActionTypes.SET_CHARACTERS_PAGINATION;
+  payload: CharactersPaginationData;
+};
+
 export type CharactersActions =
   | GetCharactersRequestAction
   | GetCharactersSuccessAction
-  | GetCharactersFailureAction;
+  | GetCharactersFailureAction
+  | SetCharactersFilterAction
+  | SetCharactersPaginationAction;

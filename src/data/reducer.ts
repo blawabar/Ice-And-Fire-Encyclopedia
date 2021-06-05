@@ -13,6 +13,8 @@ const INITIAL_STATE: CharactersState = {
   requestData: {
     page: 1,
     pageSize: 25,
+    gender: "",
+    culture: "",
   },
 };
 
@@ -38,6 +40,20 @@ export const charactersReducer = (
 
     case CharactersActionTypes.GET_CHARACTERS_FAILURE:
       return { ...state, isLoading: false, error: action.payload, data: [] };
+
+    case CharactersActionTypes.SET_CHARACTERS_FILTER:
+      const { culture, gender } = action.payload;
+      return {
+        ...state,
+        requestData: { ...state.requestData, page: 1, culture, gender },
+      };
+
+    case CharactersActionTypes.SET_CHARACTERS_PAGINATION:
+      const { page, pageSize } = action.payload;
+      return {
+        ...state,
+        requestData: { ...state.requestData, page, pageSize },
+      };
 
     default:
       return state;
