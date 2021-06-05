@@ -4,16 +4,16 @@ import { AppThunk } from "./store";
 import {
   GetCharactersRequestAction,
   CharactersActionTypes,
+  CharactersSuccessPayload,
   GetCharactersSuccessAction,
   GetCharactersFailureAction,
-  CharactersSuccessPayload,
-  CharactersActions,
   CharactersRequestData,
-  SetCharactersFilterAction,
-  SetCharactersPaginationAction,
+  CharactersActions,
   CharactersFilterData,
+  SetCharactersFilterAction,
   CharactersPaginationData,
-} from "./types";
+  SetCharactersPaginationAction,
+} from "./types/character-types";
 
 export const getCharactersRequest = (): GetCharactersRequestAction => ({
   type: CharactersActionTypes.GET_CHARACTERS_REQUEST,

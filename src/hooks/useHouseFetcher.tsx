@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { APIProvider } from "../data/api-provider";
-import { HouseFetcherState } from "../data/types";
+import { HouseFetcherState } from "../data/types/house-types";
 
 const useHouseFetcher = (houseId: string) => {
   const [state, setState] = useState<HouseFetcherState>({

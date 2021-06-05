@@ -1,8 +1,8 @@
 import {
+  CharactersState,
   CharactersActions,
   CharactersActionTypes,
-  CharactersState,
-} from "./types";
+} from "./types/character-types";
 
 const INITIAL_STATE: CharactersState = {
   data: [],

@@ -5,8 +5,8 @@ import { HouseDetailsList } from "../../components/HouseDetailsList";
 import { LoadingIndicator } from "../../components/LoadingIndicator";
 import { NavigationButton } from "../../components/NavigationButton";
 import { ROOT_URL } from "../../data/constants";
+import { HouseIdParam } from "../../data/types/house-types";
 import { useHouseFetcher } from "../../hooks";
-import { HouseIdParam } from "../../data/types";
 import "./HousePage.scss";
 
 const HousePage: React.FC = () => {

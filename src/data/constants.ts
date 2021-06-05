@@ -1,4 +1,4 @@
-import { HouseDetailsDictionary } from "./types";
+import { HouseDetailsDictionary } from "./types/house-types";
 
 export const ROOT_URL = "/";
 export const HOUSE_URL = "/house";

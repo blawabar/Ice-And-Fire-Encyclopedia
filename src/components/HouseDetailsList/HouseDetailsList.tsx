@@ -1,6 +1,6 @@
 import React from "react";
 import { HOUSE_DETAILS_DICTIONARY } from "../../data/constants";
-import { House, HouseDetailsDictionary } from "../../data/types";
+import { House, HouseDetailsDictionary } from "../../data/types/house-types";
 import "./HouseDetailsList.scss";
 
 type Props = {

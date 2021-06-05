@@ -1,5 +1,5 @@
 import { CHARACTERS_COLUMNS_NAMES } from "../../data/constants";
-import { CharactersData } from "../../data/types";
+import { CharactersData } from "../../data/types/character-types";
 import { TableBody } from "./TableBody";
 import { TableHead } from "./TableHead";
 import "./CharactersTable.scss";

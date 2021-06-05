@@ -1,4 +1,4 @@
-import { CharactersRequestData } from "../data/types";
+import { CharactersRequestData } from "../data/types/character-types";
 
 export const extractQueryParams = (args: CharactersRequestData) =>
   Object.entries(args)

@@ -5,11 +5,11 @@ import {
   HOUSE_FETCHING_ERROR_MSG,
 } from "./constants";
 import {
-  CharactersData,
   CharactersRequestData,
   CharactersResponse,
-  House,
-} from "./types";
+  CharactersData,
+} from "./types/character-types";
+import { House } from "./types/house-types";
 
 export class APIProvider {
   public static async getHouseData(houseId: string): Promise<House> {

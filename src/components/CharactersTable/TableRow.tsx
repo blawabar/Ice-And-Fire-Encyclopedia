@@ -1,5 +1,5 @@
 import { CHARACTERS_COLUMNS_NAMES } from "../../data/constants";
-import { Character } from "../../data/types";
+import { Character } from "../../data/types/character-types";
 import { useColumnsRenderer } from "../../hooks";
 
 export const TableRow: React.FC<{ data: Character }> = ({ data }) => {

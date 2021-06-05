@@ -4,7 +4,7 @@ import {
   CharacterColumnName,
   HOUSE_URL,
 } from "../data/constants";
-import { Character } from "../data/types";
+import { Character } from "../data/types/character-types";
 
 const resolveCharacterNames = (name: string, aliases: Array<string>) => {
   const isNameSet = Boolean(name);

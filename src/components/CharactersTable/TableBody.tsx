@@ -1,4 +1,4 @@
-import { CharactersData } from "../../data/types";
+import { CharactersData } from "../../data/types/character-types";
 import { TableRow } from "./TableRow";
 
 export const TableBody: React.FC<{ data: CharactersData }> = ({ data }) => {
