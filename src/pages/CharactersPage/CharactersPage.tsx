@@ -1,32 +1,20 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CharactersTable } from "../../components/CharactersTable";
 import { ErrorInfo } from "../../components/ErrorInfo";
 import { LoadingIndicator } from "../../components/LoadingIndicator";
 import { NavBar } from "../../components/NavBar";
 import { Toolbar } from "../../components/Toolbar";
 import { getCharacters } from "../../data/actions";
-import { RootState } from "../../data/store";
+import { useCharactersPageSelector } from "../../hooks";
 
 import "./CharactersPage.scss";
 
 const CharactersPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading, error, page, pageSize } = useSelector(
-    ({
-      data,
-      isLoading,
-      error,
-      requestData: { pageSize, page },
-    }: RootState) => ({
-      data,
-      isLoading,
-      error,
-      pageSize,
-      page,
-    }),
-  );
+  const { data, isLoading, error, page, pageSize } =
+    useCharactersPageSelector();
 
   useEffect(() => {
     dispatch(getCharacters({ page, pageSize }));

@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCharacters } from "../../data/actions";
-import { RootState } from "../../data/store";
+import { useToolbarSelector } from "../../hooks";
 import "./Toolbar.scss";
 
 const Toolbar: React.FC = () => {
   const dispatch = useDispatch();
-  const { pageSize, rootCulture, rootGender } = useSelector(
-    ({ requestData: { pageSize, gender, culture } }: RootState) => ({
-      pageSize,
-      rootGender: gender || "",
-      rootCulture: culture || "",
-    }),
-  );
+  const { rootPageSize, rootCulture, rootGender, isToolbarDisabled } =
+    useToolbarSelector();
   const [culture, setCulture] = useState(rootCulture);
   const [gender, setGender] = useState(rootGender);
 
@@ -25,7 +20,7 @@ const Toolbar: React.FC = () => {
   useEffect(() => {
     const isCultureSet = Boolean(culture);
     const isGenderSet = Boolean(gender);
-    const paginationData = { page: 1, pageSize };
+    const paginationData = { page: 1, pageSize: rootPageSize };
 
     if (isCultureSet && isGenderSet) {
       dispatch(getCharacters({ ...paginationData, culture, gender }));
@@ -42,15 +37,21 @@ const Toolbar: React.FC = () => {
       <label htmlFor="culture">
         Culture:
         <input
-          type="string"
+          type="search"
           id="culture"
           value={culture}
           onChange={handleOnChangeCulture}
+          disabled={isToolbarDisabled}
         />
       </label>
       <label htmlFor="gender">
         Gender:
-        <select id="gender" value={gender} onChange={handleOnChangeGender}>
+        <select
+          id="gender"
+          value={gender}
+          onChange={handleOnChangeGender}
+          disabled={isToolbarDisabled}
+        >
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="">Unknown</option>

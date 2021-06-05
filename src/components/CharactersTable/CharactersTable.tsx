@@ -10,12 +10,10 @@ type Props = {
 
 const CharactersTable: React.FC<Props> = ({ data }) => {
   return (
-    <div className="wrapper">
-      <table className="characters-table">
-        <TableHead columnsNames={CHARACTERS_COLUMNS_NAMES} />
-        <TableBody data={data} />
-      </table>
-    </div>
+    <table className="characters-table">
+      <TableHead columnsNames={CHARACTERS_COLUMNS_NAMES} />
+      <TableBody data={data} />
+    </table>
   );
 };
 

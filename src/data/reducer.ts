@@ -25,13 +25,15 @@ export const charactersReducer = (
       return { ...state, isLoading: true, error: null, data: [] };
 
     case CharactersActionTypes.GET_CHARACTERS_SUCCESS:
+      const { data, requestData, lastPage } = action.payload;
+
       return {
         ...state,
         isLoading: false,
-        data: action.payload.data,
-        currentPage: action.payload.requestData.page,
-        lastPage: action.payload.lastPage,
-        requestData: action.payload.requestData,
+        data,
+        currentPage: requestData.page,
+        lastPage,
+        requestData,
       };
 
     case CharactersActionTypes.GET_CHARACTERS_FAILURE:

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCharacters } from "../../data/actions";
-import { RootState } from "../../data/store";
+import { useNavBarSelector } from "../../hooks";
 import "./NavBar.scss";
 
 const NavBar: React.FC = () => {
@@ -12,19 +12,8 @@ const NavBar: React.FC = () => {
     rootRowsPerPage,
     rootCurrentPage,
     rootLastPage,
-  } = useSelector(
-    ({
-      requestData: { gender, culture, pageSize },
-      currentPage,
-      lastPage,
-    }: RootState) => ({
-      rootGender: gender || "",
-      rootCulture: culture || "",
-      rootRowsPerPage: pageSize,
-      rootCurrentPage: currentPage,
-      rootLastPage: lastPage,
-    }),
-  );
+    isNavBarHidden,
+  } = useNavBarSelector();
   const [rowsPerPage, setRowsPerPage] = useState(rootRowsPerPage);
   const [currentPage, setCurrentPage] = useState(rootCurrentPage);
 
@@ -52,13 +41,14 @@ const NavBar: React.FC = () => {
     setCurrentPage(rootLastPage);
   };
 
+  const filterData = { culture: rootCulture, gender: rootGender };
+
   useEffect(() => {
     dispatch(
       getCharacters({
+        ...filterData,
         page: 1,
         pageSize: rowsPerPage,
-        culture: rootCulture,
-        gender: rootGender,
       }),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,16 +57,15 @@ const NavBar: React.FC = () => {
   useEffect(() => {
     dispatch(
       getCharacters({
+        ...filterData,
         page: currentPage,
         pageSize: rowsPerPage,
-        culture: rootCulture,
-        gender: rootGender,
       }),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
-  return (
+  return isNavBarHidden ? null : (
     <nav className="nav-bar">
       <label>
         Rows per page:
