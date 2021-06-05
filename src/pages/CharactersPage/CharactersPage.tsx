@@ -13,7 +13,7 @@ import "./CharactersPage.scss";
 const CharactersPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading, error, page, pageSize } =
+  const { data, isLoading, error, page, pageSize, responseMessage } =
     useCharactersPageSelector();
 
   useEffect(() => {
@@ -33,7 +33,9 @@ const CharactersPage: React.FC = () => {
 
   return (
     <div className="characters-page">
-      <h1 className="characters-page__title">Characters</h1>
+      {!isLoading && (
+        <h2 className="characters-page__title">{responseMessage}</h2>
+      )}
       <Toolbar />
       <section className="characters-page__body">{pageBody}</section>
       <NavBar />

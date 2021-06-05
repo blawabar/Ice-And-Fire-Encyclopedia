@@ -11,24 +11,25 @@ const Toolbar: React.FC = () => {
   const [culture, setCulture] = useState(rootCulture);
   const [gender, setGender] = useState(rootGender);
 
-  const handleOnChangeCulture = (evt: React.ChangeEvent<HTMLInputElement>) =>
-    setCulture(evt.target.value);
+  const handleOnChangeCulture = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const {
+      target: { value },
+    } = evt;
+    const isCultureReset = !Boolean(value.length);
+    const isCultureValueValid = Boolean(value.trim().length);
+
+    if (isCultureReset || isCultureValueValid) {
+      setCulture(value);
+    }
+  };
 
   const handleOnChangeGender = (evt: React.ChangeEvent<HTMLSelectElement>) =>
     setGender(evt.target.value);
 
   useEffect(() => {
-    const isCultureSet = Boolean(culture);
-    const isGenderSet = Boolean(gender);
-    const paginationData = { page: 1, pageSize: rootPageSize };
-
-    if (isCultureSet && isGenderSet) {
-      dispatch(getCharacters({ ...paginationData, culture, gender }));
-    } else if (isGenderSet) {
-      dispatch(getCharacters({ ...paginationData, gender }));
-    } else if (isCultureSet) {
-      dispatch(getCharacters({ ...paginationData, culture }));
-    }
+    dispatch(
+      getCharacters({ page: 1, pageSize: rootPageSize, culture, gender }),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [culture, gender]);
 
@@ -52,9 +53,10 @@ const Toolbar: React.FC = () => {
           onChange={handleOnChangeGender}
           disabled={isToolbarDisabled}
         >
+          <option value=""> - Select gender - </option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-          <option value="">Unknown</option>
+          <option value="unknown">Unknown</option>
         </select>
       </label>
     </div>

@@ -8,12 +8,16 @@ const useCharactersPageSelector = () =>
       isLoading,
       error,
       requestData: { pageSize, page },
+      lastPage,
     }: RootState) => ({
       data,
       isLoading,
       error,
       pageSize,
       page,
+      responseMessage: Boolean(data.length)
+        ? `Characters (${pageSize * lastPage})`
+        : "No characters found",
     }),
   );
 

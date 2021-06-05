@@ -12,7 +12,7 @@ const INITIAL_STATE: CharactersState = {
   lastPage: 1,
   requestData: {
     page: 1,
-    pageSize: 10,
+    pageSize: 25,
   },
 };
 
