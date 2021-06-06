@@ -19,7 +19,7 @@ export const extractLastPageNumber = (headers: Headers) =>
 
 export const resolveCharacterNames = (name: string, aliases: Array<string>) => {
   const isNameSet = Boolean(name);
-  const areAliasesSet = Boolean(aliases.length);
+  const areAliasesSet = Boolean(aliases.join());
   let characterNames = "Unknown";
 
   if (isNameSet && areAliasesSet) {
