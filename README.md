@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# Encyclopedia Of Ice And Fire
+
+This Encyclopedia Of Ice And Fire is based upon a free [An API of Ice And Fire](https://anapioficeandfire.com/api/) deliverd by the [An API of Ice And Fire](https://anapioficeandfire.com/).
+
+## Main features
+
+### How the data is organized
+
+You have the possibility to browse through Characters just by providing a Culture and selecting a certain Gender you want. If no search criteria are provided all records will be available.
+
+All characters are displayed in a form of a table. Data is loaded in chunks - 10, 25 or 50 per page. The amount can be chosen by a user. There is also a possibility to display a detailed information about Houses which are listed in the "Allegiances" column.
+
+# Setup and installation instructions
+
+Please follow the instructions below.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
