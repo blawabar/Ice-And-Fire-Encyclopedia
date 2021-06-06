@@ -1,0 +1,24 @@
+.page-btn {
+  padding: 0.5em;
+  margin-right: 8px;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  font-family: var(----main-font);
+  color: var(--white);
+  background-color: var(--dark-blue);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--light-blue);
+  }
+
+  &:disabled {
+    background-color: var(--grey);
+    cursor: not-allowed;
+  }
+}

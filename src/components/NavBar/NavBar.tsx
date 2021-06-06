@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { SetCharactersPagination } from "../../data/actions";
 import { useNavBarSelector } from "../../hooks";
+import { PageButton } from "../PageButton";
 import "./NavBar.scss";
 
 const NavBar: React.FC = () => {
@@ -77,33 +78,25 @@ const NavBar: React.FC = () => {
       </label>
       <span className="nav-bar__page-info">{`Page ${rootCurrentPage} of ${rootLastPage}`}</span>
       <div className="nav-bar__buttons-group">
-        <input
-          type="button"
-          className="nav-bar__page-btn"
-          disabled={isDisplayingFirstPage}
+        <PageButton
+          label="First"
+          isDisabled={isDisplayingFirstPage}
           onClick={handleOnLoadFirstPage}
-          value="First"
         />
-        <input
-          type="button"
-          className="nav-bar__page-btn"
-          disabled={isDisplayingFirstPage}
+        <PageButton
+          label="Prev"
+          isDisabled={isDisplayingFirstPage}
           onClick={handleOnLoadPrevPage}
-          value="Prev"
         />
-        <input
-          type="button"
-          className="nav-bar__page-btn"
-          disabled={isDisplayingLastPage}
+        <PageButton
+          label="Next"
+          isDisabled={isDisplayingLastPage}
           onClick={handleOnLoadNextPage}
-          value="Next"
         />
-        <input
-          type="button"
-          className="nav-bar__page-btn"
-          disabled={isDisplayingLastPage}
+        <PageButton
+          label="Last"
+          isDisabled={isDisplayingLastPage}
           onClick={handleOnLoadLastPage}
-          value="Last"
         />
       </div>
     </nav>
