@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Ice-And-Fire-Encyclopedia/static/css/main.9071554d.chunk.css",
+    "main.js": "/Ice-And-Fire-Encyclopedia/static/js/main.a40bdc9f.chunk.js",
+    "main.js.map": "/Ice-And-Fire-Encyclopedia/static/js/main.a40bdc9f.chunk.js.map",
+    "runtime-main.js": "/Ice-And-Fire-Encyclopedia/static/js/runtime-main.b90fd95c.js",
+    "runtime-main.js.map": "/Ice-And-Fire-Encyclopedia/static/js/runtime-main.b90fd95c.js.map",
+    "static/js/2.e0e53cb3.chunk.js": "/Ice-And-Fire-Encyclopedia/static/js/2.e0e53cb3.chunk.js",
+    "static/js/2.e0e53cb3.chunk.js.map": "/Ice-And-Fire-Encyclopedia/static/js/2.e0e53cb3.chunk.js.map",
+    "index.html": "/Ice-And-Fire-Encyclopedia/index.html",
+    "static/css/main.9071554d.chunk.css.map": "/Ice-And-Fire-Encyclopedia/static/css/main.9071554d.chunk.css.map",
+    "static/js/2.e0e53cb3.chunk.js.LICENSE.txt": "/Ice-And-Fire-Encyclopedia/static/js/2.e0e53cb3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b90fd95c.js",
+    "static/js/2.e0e53cb3.chunk.js",
+    "static/css/main.9071554d.chunk.css",
+    "static/js/main.a40bdc9f.chunk.js"
+  ]
+}
