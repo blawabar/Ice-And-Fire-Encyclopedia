@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { SetCharactersPagination } from "../../data/actions";
+import { setCharactersPagination } from "../../data/characters-slice";
 import { useNavBarSelector } from "../../hooks";
 import { PageButton } from "../PageButton";
 import "./NavBar.scss";
@@ -44,7 +44,7 @@ const NavBar: React.FC = () => {
 
   useEffect(() => {
     dispatch(
-      SetCharactersPagination({
+      setCharactersPagination({
         page: 1,
         pageSize: rowsPerPage,
       }),
@@ -54,7 +54,7 @@ const NavBar: React.FC = () => {
 
   useEffect(() => {
     dispatch(
-      SetCharactersPagination({
+      setCharactersPagination({
         page: currentPage,
         pageSize: rowsPerPage,
       }),

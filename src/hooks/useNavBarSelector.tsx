@@ -4,10 +4,12 @@ import { RootState } from "../data/store";
 const useNavBarSelector = () =>
   useSelector(
     ({
-      requestData: { pageSize: rootPageSize },
-      currentPage,
-      lastPage,
-      data,
+      characters: {
+        requestData: { pageSize: rootPageSize },
+        currentPage,
+        lastPage,
+        data,
+      },
     }: RootState) => ({
       rootPageSize,
       rootCurrentPage: currentPage,

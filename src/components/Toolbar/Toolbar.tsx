@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { SetCharactersFilter } from "../../data/actions";
+import { setCharactersFilter } from "../../data/characters-slice";
 import { useToolbarSelector } from "../../hooks";
 import "./Toolbar.scss";
 
@@ -26,7 +26,7 @@ const Toolbar: React.FC = () => {
     setGender(evt.target.value);
 
   useEffect(() => {
-    dispatch(SetCharactersFilter({ culture, gender }));
+    dispatch(setCharactersFilter({ culture, gender }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [culture, gender]);
 

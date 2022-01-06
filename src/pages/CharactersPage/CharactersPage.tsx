@@ -5,7 +5,7 @@ import { ErrorInfo } from "../../components/ErrorInfo";
 import { LoadingIndicator } from "../../components/LoadingIndicator";
 import { NavBar } from "../../components/NavBar";
 import { Toolbar } from "../../components/Toolbar";
-import { getCharacters } from "../../data/actions";
+import { getCharacters } from "../../data/characters-thunk";
 import { useCharactersPageSelector } from "../../hooks";
 
 import "./CharactersPage.scss";

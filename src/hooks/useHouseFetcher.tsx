@@ -12,7 +12,7 @@ const useHouseFetcher = (houseId: string) => {
       const data = await APIProvider.getHouseData(houseId);
       setState((prev) => ({ ...prev, data, isLoading: false }));
     } catch (error) {
-      setState((prev) => ({ ...prev, error: error.toString() }));
+      setState((prev) => ({ ...prev, error: (error as Error).toString() }));
     }
   };
 
