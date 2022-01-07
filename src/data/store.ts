@@ -1,19 +1,10 @@
-import { Action } from "redux";
-import { ThunkAction } from "redux-thunk";
 import { configureStore } from "@reduxjs/toolkit";
 
 import charactersReducer from "./characters-slice";
-// TODO: Add housesReducer
+import houseDetailsReducer from "./house-details-slice";
 
 export const store = configureStore({
-  reducer: { characters: charactersReducer },
+  reducer: { characters: charactersReducer, houseDetails: houseDetailsReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;

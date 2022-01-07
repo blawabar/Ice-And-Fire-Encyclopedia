@@ -6,7 +6,6 @@ import useCharactersPageSelector from "./useCharactersPageSelector";
 
 const useCharactersFetcher = () => {
   const dispatch = useDispatch();
-
   const { requestData, ...rest } = useCharactersPageSelector();
 
   useEffect(() => {
