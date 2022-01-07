@@ -1,27 +1,19 @@
-import { useState, useEffect } from "react";
-import { APIProvider } from "../data/api-provider";
-import { HouseFetcherState } from "../data/types/house-types";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { getHouseData } from "../data/house-details-thunk";
+import useHousePageSelector from "./useHousePageSelector";
 
 const useHouseFetcher = (houseId: string) => {
-  const [state, setState] = useState<HouseFetcherState>({
-    isLoading: true,
-  });
-
-  const loadHouse = async (houseId: string) => {
-    try {
-      const data = await APIProvider.getHouseData(houseId);
-      setState((prev) => ({ ...prev, data, isLoading: false }));
-    } catch (error) {
-      setState((prev) => ({ ...prev, error: error.toString() }));
-    }
-  };
+  const dispatch = useDispatch();
+  const houseState = useHousePageSelector();
 
   useEffect(() => {
-    loadHouse(houseId);
+    dispatch(getHouseData(houseId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [houseId]);
 
-  return state;
+  return houseState;
 };
 
 export default useHouseFetcher;

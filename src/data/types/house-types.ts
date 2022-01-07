@@ -32,8 +32,8 @@ export type HouseDetailsDictionary = Record<DictionaryKeys, string> & {
   [key: string]: string;
 };
 
-export type HouseFetcherState = {
-  data?: House;
+export type HouseDetailsState = {
+  houseData?: House;
   isLoading: boolean;
   error?: string;
 };

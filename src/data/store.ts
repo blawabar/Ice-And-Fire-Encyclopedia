@@ -1,28 +1,10 @@
-import { createStore, applyMiddleware, Action } from "redux";
-import thunk, { ThunkAction } from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from "@reduxjs/toolkit";
 
-import { charactersReducer } from "./reducer";
+import charactersReducer from "./characters-slice";
+import houseDetailsReducer from "./house-details-slice";
 
-export default function configureStore() {
-  const storeEnhancer = composeWithDevTools(applyMiddleware(thunk));
+export const store = configureStore({
+  reducer: { characters: charactersReducer, houseDetails: houseDetailsReducer },
+});
 
-  const store = createStore(charactersReducer, storeEnhancer);
-
-  if (process.env.NODE_ENV !== "production" && module.hot) {
-    module.hot.accept("./reducer.ts", () =>
-      store.replaceReducer(charactersReducer),
-    );
-  }
-
-  return store;
-}
-
-export type RootState = ReturnType<typeof charactersReducer>;
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+export type RootState = ReturnType<typeof store.getState>;

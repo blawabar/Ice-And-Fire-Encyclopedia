@@ -24,10 +24,10 @@ export class APIProvider {
         return data;
       } else {
         const isHouseNotFound = status === 404;
-
         const errorMessage = isHouseNotFound
           ? HOUSE_FETCHING_ERROR_MSG
           : `Something went wrong - Error: ${status}`;
+
         throw new Error(errorMessage);
       }
     } catch (error) {
