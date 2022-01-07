@@ -52,25 +52,23 @@ const charactersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCharactersPending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-        state.data = [];
+        return { ...state, isLoading: true, error: null, data: [] };
       })
       .addCase(getCharactersFulfilled, (state, action) => {
         const { data, requestData, lastPage } = action.payload;
 
-        state.isLoading = false;
-        state.data = data;
-        state.currentPage = requestData.page;
-        state.lastPage = lastPage;
-        state.requestData = requestData;
+        return {
+          ...state,
+          isLoading: false,
+          data,
+          currentPage: requestData.page,
+          lastPage,
+          requestData,
+        };
       })
       .addCase(getCharactersRejected, (state, action) => {
         const error = action.payload as string;
-
-        state.isLoading = false;
-        state.error = error;
-        state.data = [];
+        return { ...state, isLoading: false, error, data: [] };
       });
   },
 });
