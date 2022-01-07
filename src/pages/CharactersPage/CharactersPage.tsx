@@ -1,29 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { CharactersTable } from "../../components/CharactersTable";
 import { ErrorInfo } from "../../components/ErrorInfo";
 import { LoadingIndicator } from "../../components/LoadingIndicator";
 import { NavBar } from "../../components/NavBar";
 import { Toolbar } from "../../components/Toolbar";
-import { getCharacters } from "../../data/characters-thunk";
-import { useCharactersPageSelector } from "../../hooks";
+import { useCharactersFetcher } from "../../hooks";
 
 import "./CharactersPage.scss";
 
 const CharactersPage: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const { data, isLoading, error, requestData } = useCharactersPageSelector();
-
-  useEffect(() => {
-    dispatch(getCharacters(requestData));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    requestData.culture,
-    requestData.gender,
-    requestData.page,
-    requestData.pageSize,
-  ]);
+  const { data, isLoading, error } = useCharactersFetcher();
 
   let pageBody = null;
 
