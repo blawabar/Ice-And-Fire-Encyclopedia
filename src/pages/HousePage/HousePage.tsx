@@ -14,14 +14,27 @@ import "./HousePage.scss";
 const HousePage: React.FC = () => {
   const dispatch = useDispatch();
   const { houseId } = useParams<HouseIdParam>();
-  const { isLoading, houseData, error } = useHouseFetcher(houseId);
+  const { isLoading, houseData, error } = useHouseFetcher(houseId as string);
 
   const handleOnGoBack = () => dispatch(resetHouseState());
+
+  const BackButton = () => (
+    <NavigationButton
+      linkText="Back To Characters"
+      link={ROOT_URL}
+      onClick={handleOnGoBack}
+    />
+  );
 
   let pageContent = null;
 
   if (error) {
-    pageContent = <ErrorInfo errorMsg={error} />;
+    pageContent = (
+      <div>
+        <BackButton />
+        <ErrorInfo errorMsg={error} />
+      </div>
+    );
   } else if (isLoading) {
     pageContent = <LoadingIndicator resourceName="house" />;
   } else if (houseData) {
@@ -29,11 +42,7 @@ const HousePage: React.FC = () => {
 
     pageContent = (
       <div className="house-page">
-        <NavigationButton
-          linkText="Back To Characters"
-          link={ROOT_URL}
-          onClick={handleOnGoBack}
-        />
+        <BackButton />
         <h2 className="house-page__name">{name}</h2>
         <HouseDetailsList houseData={houseData} />
       </div>
