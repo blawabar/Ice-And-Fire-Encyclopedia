@@ -1,14 +1,13 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../data/store";
+import { useAppSelector } from "../data/hooks";
 
 const useToolbarSelector = () =>
-  useSelector(
+  useAppSelector(
     ({
       characters: {
         requestData: { gender, culture },
         isLoading,
       },
-    }: RootState) => ({
+    }) => ({
       rootGender: gender,
       rootCulture: culture,
       isToolbarDisabled: Boolean(isLoading),

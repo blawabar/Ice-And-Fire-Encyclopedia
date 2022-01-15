@@ -1,14 +1,11 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../data/store";
+import { useAppSelector } from "../data/hooks";
 
 const useCharactersPageSelector = () =>
-  useSelector(
-    ({ characters: { data, isLoading, error, requestData } }: RootState) => ({
-      data,
-      isLoading,
-      error,
-      requestData,
-    }),
-  );
+  useAppSelector(({ characters: { data, isLoading, error, requestData } }) => ({
+    data,
+    isLoading,
+    error,
+    requestData,
+  }));
 
 export default useCharactersPageSelector;

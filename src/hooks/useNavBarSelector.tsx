@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../data/store";
+import { useAppSelector } from "../data/hooks";
 
 const useNavBarSelector = () =>
-  useSelector(
+  useAppSelector(
     ({
       characters: {
         requestData: { pageSize: rootPageSize },
@@ -10,7 +9,7 @@ const useNavBarSelector = () =>
         lastPage,
         data,
       },
-    }: RootState) => ({
+    }) => ({
       rootPageSize,
       rootCurrentPage: currentPage,
       rootLastPage: lastPage,

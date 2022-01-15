@@ -1,13 +1,10 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../data/store";
+import { useAppSelector } from "../data/hooks";
 
 const useHousePageSelector = () =>
-  useSelector(
-    ({ houseDetails: { houseData, isLoading, error } }: RootState) => ({
-      houseData,
-      isLoading,
-      error,
-    }),
-  );
+  useAppSelector(({ houseDetails: { houseData, isLoading, error } }) => ({
+    houseData,
+    isLoading,
+    error,
+  }));
 
 export default useHousePageSelector;

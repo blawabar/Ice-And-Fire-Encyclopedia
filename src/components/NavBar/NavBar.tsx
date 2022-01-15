@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { setCharactersPagination } from "../../data/characters-slice";
+import { useAppDispatch } from "../../data/hooks";
 import { useNavBarSelector } from "../../hooks";
 import { PageButton } from "../PageButton";
 import "./NavBar.scss";
 
 const NavBar: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     rootPageSize,
     rootCurrentPage,

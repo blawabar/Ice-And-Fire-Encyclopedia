@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 import { getCharacters } from "../data/characters-thunk";
+import { useAppDispatch } from "../data/hooks";
 import useCharactersPageSelector from "./useCharactersPageSelector";
 
 const useCharactersFetcher = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { requestData, ...rest } = useCharactersPageSelector();
 
   useEffect(() => {

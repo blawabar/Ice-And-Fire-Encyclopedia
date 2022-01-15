@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { setCharactersFilter } from "../../data/characters-slice";
+import { useAppDispatch } from "../../data/hooks";
 import { useToolbarSelector } from "../../hooks";
 import "./Toolbar.scss";
 
 const Toolbar: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { rootCulture, rootGender, isToolbarDisabled } = useToolbarSelector();
   const [culture, setCulture] = useState(rootCulture);
   const [gender, setGender] = useState(rootGender);

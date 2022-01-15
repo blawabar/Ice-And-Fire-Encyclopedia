@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ROOT_URL } from "../data/constants";
+import { useAppDispatch } from "../data/hooks";
 
 import { getHouseData } from "../data/house-details-thunk";
 import useHousePageSelector from "./useHousePageSelector";
 
 const useHouseFetcher = (houseId: string) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const houseState = useHousePageSelector();
   const navigate = useNavigate();
 

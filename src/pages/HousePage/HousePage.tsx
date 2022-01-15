@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ErrorInfo } from "../../components/ErrorInfo";
 import { HouseDetailsList } from "../../components/HouseDetailsList";
@@ -10,9 +9,10 @@ import { HouseIdParam } from "../../data/types/house-types";
 import { resetHouseState } from "../../data/house-details-slice";
 import { useHouseFetcher } from "../../hooks";
 import "./HousePage.scss";
+import { useAppDispatch } from "../../data/hooks";
 
 const HousePage: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { houseId } = useParams<HouseIdParam>();
   const { isLoading, houseData, error } = useHouseFetcher(houseId as string);
 
