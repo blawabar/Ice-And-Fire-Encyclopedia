@@ -10,6 +10,9 @@ You have the possibility to browse through Characters just by providing a Cultur
 
 All characters are displayed in a form of a table. Data is loaded in chunks - 10, 25 or 50 per page. The amount can be chosen by a user. There is also a possibility to display a detailed information about Houses which are listed in the "Allegiances" column.
 
+# Live demo
+https://blawabar.github.io/Ice-And-Fire-Encyclopedia/#/
+
 # Setup and installation instructions
 
 Please follow the instructions below.
